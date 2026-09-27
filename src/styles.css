@@ -1,0 +1,94 @@
+@media only screen and (min-width:0px){
+
+    *{
+        margin: 0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    html{
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+
+    body{
+        font-family: 'Times New Roman', Times, serif;
+        background-color: darkgreen;
+        background-image: url('./fondo_gta6.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100dvh;
+        width: 100dvw;
+        display:flex;
+        flex-flow: row wrap;
+        padding:1dvw;
+        color: darkblue
+    }
+
+    header,main,footer,main section{
+        width:100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+
+    header h1, footer h3{
+        border-radius: 5dvh;
+        font-size: 7dvw;
+    }
+
+    header h1{
+        background: linear-gradient(90deg, #ff69f9, #6af0ff);
+        text-shadow: 0 0 10px #ff69f9;
+        box-shadow: 0 0 20px rgba(255,105,249,0.8);
+    }
+
+    footer h3{
+        background: linear-gradient(90deg, #6af0ff, #ff69f9);
+        text-shadow: 0 0 10px #6af0ff;
+        box-shadow: 0 0 20px rgba(106,240,255,0.8);
+    }
+
+    main section article{
+        padding: 1.5dvh;
+        font-size: 7dvh;
+        border-radius: 5dvh;
+        background: linear-gradient(135deg, #ff69f9, #d441ff, #6af0ff);
+        text-shadow: 0 0 15px rgba(255,255,255,0.8);
+        box-shadow: 0 0 25px rgba(255,105,249,0.7);
+        border: 2px solid #ff69f9;
+        margin-top:2.5dvh;
+        margin-bottom:2.5dvh;
+    }
+
+    main section article span {
+        font-weight: bold;
+        text-shadow: 0 0 12px #ff69f9;
+    }
+
+    #segundos{
+        font-size:6dvh;
+    }
+
+}
+
+@media only screen and (min-width:500px){
+
+    header h1, footer h3{
+        padding: 1dvh;
+        border-radius: 5dvh;
+        font-size: 4dvw;
+    }
+
+    main section{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+    }
+
+
+}

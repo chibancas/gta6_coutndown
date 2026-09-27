@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Cuenta Regresiva GTA-6</title>
+    <meta name="description" content="Desde los días hasta los segundos. Ten a la mano el tiempo restante para el lanzamiento de GTA6">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Fecha objetivo (GTA 6 sale el 2026-11-19)
+            const fechaLanzamiento = new Date("2026-11-19T00:00:00");
+
+            function actualizarContador() {
+                const ahora = new Date();
+                let diferencia = fechaLanzamiento - ahora; // Milisegundos restantes
+
+                if (diferencia <= 0) {
+                    document.querySelector("#dias").textContent = "0 días";
+                    document.querySelector("#horas").textContent = "0 horas";
+                    document.querySelector("#minutos").textContent = "0 minutos";
+                    document.querySelector("#segundos").textContent = "0 segundos";
+                    return;
+                }
+
+                // Cálculos (usar restos para segundos/minutos/horas)
+                const segundosTotales = Math.floor(diferencia / 1000);
+                const segundos = segundosTotales % 60;
+                const minutosTotales = Math.floor(segundosTotales / 60);
+                const minutos = minutosTotales % 60;
+                const horasTotales = Math.floor(minutosTotales / 60);
+                const horas = horasTotales % 24;
+                const dias = Math.floor(horasTotales / 24);
+
+                // Insertar en pantalla
+                document.querySelector("#dias").textContent = `${dias} días`;
+                document.querySelector("#horas").textContent = `${horas} horas`;
+                document.querySelector("#minutos").textContent = `${minutos} minutos`;
+                document.querySelector("#segundos").textContent = `${segundos} segundos`;
+            }
+
+            // Actualizar cada segundo
+            actualizarContador();
+            setInterval(actualizarContador, 1000);
+        });
+
+    </script>
+
+    <header>
+
+        <h1>
+            Cuenta Regresiva GTA 6
+        </h1>
+
+    </header>
+
+    <main>
+
+        <section>
+
+            <article>
+                <span id="dias">
+                </span>
+            </article>
+
+            <article>
+                <span id="horas">
+                </span>
+            </article>
+
+            <article>
+                <span id="minutos">
+                </span>
+            </article>
+
+            <article>
+                <span id="segundos">
+                </span>
+            </article>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <h3>
+            Hecho a fecha 19/11/2025
+        </h3>
+
+    </footer>
+
+</body>
+
+</html>

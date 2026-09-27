@@ -1,0 +1,28 @@
+name: gta6_countDown
+
+services:
+  gta:
+    image: nginx:alpine
+    container_name: mi-web
+    restart: unless-stopped
+
+    volumes:
+      - ./src:/usr/share/nginx/html:ro
+
+    networks:
+      - proxy
+
+    environment:
+      - DOMINIO=${DOMINIO}
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.miweb.rule=Host(`${DOMINIO}`)"
+      - "traefik.http.routers.miweb.entrypoints=websecure"
+      - "traefik.http.routers.miweb.tls=true"
+      - "traefik.http.routers.miweb.tls.certresolver=le"
+      - "traefik.http.services.miweb.loadbalancer.server.port=80"
+
+networks:
+  proxy:
+    external: true
